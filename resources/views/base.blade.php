@@ -53,10 +53,10 @@
             align-items: center;
             margin: 0 5%;
         }
+
         .category {
             margin-right: 20px;
         }
-
     </style>
 
 </head>
@@ -65,7 +65,7 @@
     <div class="ctn">
         <header class="header">
 
-            <a class="logo" href="/app">
+            <a class="logo" href="{{ route('products.index') }}">
                 <span>WE FASHION</span>
             </a>
 
@@ -84,6 +84,12 @@
             </a>
 
         </header>
+        
+        <div class="content">
+            @yield('content')
+        </div>
+        
+
     </div>
 
 </body>
