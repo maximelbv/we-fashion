@@ -5,7 +5,7 @@ A study project to implement the notions learned in PHP, SQL and Laravel at [L'E
 -> [Project's brief](public/brief.pdf)
 
 ### Requirements
-
+-> [Database Model](https://prettyfdbdiagram.io/d/6447ec9f6b319470512ca8df)
 ### Installation
 
 > _Décrire ici les étapes d'installation et commandes à lancer (migrations, seeds, vendors laravel et dépendances npm)_
@@ -14,7 +14,7 @@ A study project to implement the notions learned in PHP, SQL and Laravel at [L'E
 
 > _S'il faut configurer la base de données, mettez également les instructions ici_
 
--> [Database Model](https://pretty fdbdiagram.io/d/6447ec9f6b319470512ca8df)
+
 
 ## Lancement du projet
 
