@@ -15,7 +15,7 @@ class CreateSizesTable extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->enum("sizes", ["XS", "S", "M", "L", "XL"]);
             $table->timestamps();
         });
     }

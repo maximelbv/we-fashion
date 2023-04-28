@@ -17,23 +17,20 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('desc');
-            $table->decimal('price');
+            $table->float('price');
             $table->string('imageUrl');
-            $table->boolean('isPublished')->default(false);
+            $table->enum("isPublished", ["published", "not_published"])->default(false);
+            $table->enum("state", ["discount_applied", "standard"]);
             $table->timestamps();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('size_id');
-            $table->unsignedBigInteger('state_id');
+            
             $table
                 ->foreign('category_id')
                 ->references('id')->on('categories');
             $table
                 ->foreign('size_id')
                 ->references('id')->on('sizes');
-            $table
-                ->foreign('state_id')
-                ->references('id')->on('states');
-            
         });
     }
 

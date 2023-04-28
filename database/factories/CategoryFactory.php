@@ -1,27 +1,28 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Models\Category;
-use Illuminate\Support\Str;
+namespace Database\Factories;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
+use App\Models\Categories;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Category::class, function () {
-    return [
-        {
-            'name' => 'men',
-        },
-        {
-            'name' => 'women',
-        }
-    ];
-});
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class CategoryFactory extends Factory
+{
+    protected $model = Categories::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            "name" => fake()
+                ->unique()
+                ->randomElement(["men", "women"]),
+        ];
+    }
+}
