@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('desc');
             $table->float('price');
             $table->string('imageUrl');
-            $table->enum("isPublished", ["published", "not_published"])->default(false);
+            $table->enum("isPublished", ["published", "not_published"])->default("not_published");
             $table->enum("state", ["discount_applied", "standard"]);
             $table->timestamps();
             $table->unsignedBigInteger('category_id');
