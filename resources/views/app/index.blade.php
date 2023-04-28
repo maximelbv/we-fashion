@@ -6,7 +6,7 @@
 
     <h1>All Articles</h1>
 
-    @foreach($products as $product)
+    @forelse($products as $product)
 
         <article>
             <a href="{{ route('products.show',['id' => $product->id]) }}">
@@ -17,7 +17,10 @@
 
         </article>
 
-    @endforeach
+    @empty 
+        <p>No products available</p>
+
+    @endforelse
 
     {{ $products->links() }}
 

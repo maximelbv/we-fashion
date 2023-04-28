@@ -14,23 +14,17 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('name');
             $table->string('desc');
-            $table->float('price');
+            $table->decimal('price', 10, 2);
             $table->string('imageUrl');
-            $table->enum("isPublished", ["published", "not_published"])->default("not_published");
-            $table->enum("state", ["discount_applied", "standard"]);
+            $table->enum('size', ['XS', 'S', 'M', 'L', 'XL']);
+            $table->boolean('isPublished');
+            $table->enum("state", ["promotion", "standard"]);
+            $table->string('reference', 16);
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('size_id');
-            
-            $table
-                ->foreign('category_id')
-                ->references('id')->on('categories');
-            $table
-                ->foreign('size_id')
-                ->references('id')->on('sizes');
         });
     }
 

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,14 +23,15 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => fake()->name(),
-            "desc" => fake()->sentence(10),
-            "price" => fake()->randomFloat(2, 0, 100),
-            "imageUrl" => fake()->imageUrl(200, 200),
-            "isPublished" => fake()->randomElement(["published", "not_published"]),
-            "state" => fake()->randomElement(["discount_applied", "standard"]),
-            "reference" => fake()->unique()->text(16),
-            "category_id" => Category::all()->random()->id
+            'name' => fake()->word(),
+            'desc' => fake()->text(100),
+            'price' => fake()->randomFloat(2, 0, 1000),
+            'imageUrl' => fake()->imageUrl(),
+            'size' => fake()->randomElement(['XS', 'S', 'M', 'L', 'XL']),
+            'isPublished' => fake()->boolean(),
+            'state' => fake()->randomElement(['promotion', 'standard']),
+            'reference' => fake()->regexify('[A-Za-z0-9]{16}'),
+            'category_id' => fake()->randomElement(Category::pluck('id')->toArray()),
         ];
     }
 }
