@@ -6,3 +6,22 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+ul {
+    padding: 0;
+}
+
+ul:before {
+    content: attr(aria-label);
+    font-size: 120%;
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+}

@@ -15,11 +15,12 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="d-flex flex-column">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}" style='color: #66EB9A; font-weight: bolder;'>
@@ -82,7 +83,7 @@
             @yield('content')
         </main>
 
-        <footer class="container">
+        <footer class="container d-flex justify-content-around" style='align-self: center;margin: 100px 0;padding-top: 100px; border-top: 1px solid black'>
             <ul aria-label="Informations">
                 <li><a href="/">Legal Mentions</a></li>
                 <li><a href="/">Press</a></li>
@@ -96,13 +97,13 @@
             <ul aria-label="Socials">
                 <li>
                     <a href="/">
-                        <img src="../../public/images/icons/facebook.png" alt="icon facebook"></img>
+                        <i class="fa-brands fa-facebook"></i>
                         <span>Facebook</span>
                     </a>
                 </li>
                 <li>
                     <a href="/">
-                        <img src="../../public/images/icons/instagram.png" alt="icon instagram">
+                        <i class="fa-brands fa-instagram"></i>
                         <span>Instagram</span>
                     </a>
                 </li>
