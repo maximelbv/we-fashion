@@ -31,20 +31,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <div class="navbar-nav me-auto">
 
-                        <a class="category" href="/app/discount">
-                            <span>DISCOUNT</span>
-                        </a>
-
-                        <a class="category" href="/app/men">
-                            <span>MEN</span>
-                        </a>
-
-                        <a class="category" href="/app/women">
-                            <span>WOMEN</span>
-                        </a>
-                    </div>
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.filter', ['state' => 'promotion']) }}">DISCOUNT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 1]) }}">MEN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 2]) }}">WOMEN</a>
+                        </li>
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

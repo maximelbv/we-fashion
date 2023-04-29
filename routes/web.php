@@ -20,34 +20,11 @@ Route::get('/', function () {
 
 Route::prefix('/app')->name('products.')->controller(\App\Http\Controllers\ProductController::class)-> group(function() {
 
-    Route::get('/', 'index')->name('index');
+    Route::get('/', 'filter')->name('filter');
 
     Route::get('/products/{id}', 'show')->where(['id' => '[0-9]+'])->name('show');
     
 });
-
-
-Route::get('/admin', function () {
-    return view('administration');
-});
-
-// Route::prefix('/app')->group(function () {
-//     Route::get('/', function () {
-//         return view('home');
-//     });
-
-//     Route::get('/discount', function () {
-//         return view('home');
-//     });
-
-//     Route::get('/women', function () {
-//         return view('home');
-//     });
-
-//     Route::get('/men', function () {
-//         return view('home');
-//     });
-// });
 
 Auth::routes();
 
