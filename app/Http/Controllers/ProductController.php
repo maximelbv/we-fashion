@@ -9,13 +9,6 @@ use Illuminate\View\View;
 
 class ProductController extends Controller { 
 
-
-    public function index(): View {
-        return view('app.index', [
-            'products' => Product::paginate(6)->where('isPublished', '1')
-        ]);
-    }
-
     public function filter (Request $request) : View {
         $products = Product::query()->where('isPublished', '1');
 
@@ -29,7 +22,7 @@ class ProductController extends Controller {
             $products->where('state', 'promotion');
         }
 
-        $products = $products->paginate(6);
+        $products = $products->paginate(6)->appends(request()->query());
 
         return view('app.index', ["products" => $products]);
     }
