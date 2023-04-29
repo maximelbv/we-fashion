@@ -14,12 +14,12 @@ class ProductController extends Controller {
 
     public function index(): View {
         return view('app.index', [
-            'products' => App\Models\Product::paginate(6)
+            'products' => App\Models\Product::paginate(6)->where('isPublished', '1')
         ]);
     }
 
     public function filter (Request $request) : View {
-        $products = Product::query();
+        $products = Product::query()->where('isPublished', '1');
 
         $category_id = $request->get('category_id');
 
