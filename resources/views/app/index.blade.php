@@ -18,6 +18,7 @@
                 <p style='margin-bottom: 0'>{{ $product->size }}</p>
                 <p style='margin-bottom: 0'>{{ $product->category_id == 1 ? 'Men' : 'Women' }}</p>
                 <p style='font-weight: bolder; '>{{ $product->state == 'promotion' ? 'DISCOUNT' : '' }}</p>
+                <p>{{ $product->id }}</p>
             </div>
         </a>
     </div>

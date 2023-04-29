@@ -10,7 +10,7 @@ use Illuminate\View\View;
 class ProductController extends Controller { 
 
     public function filter (Request $request) : View {
-        $products = Product::query()->where('isPublished', '1');
+        $products = Product::query()->orderBy('id', 'desc')->orderBy('created_at', 'desc')->where('isPublished', '1');
 
         $category_id = $request->get('category_id');
 
