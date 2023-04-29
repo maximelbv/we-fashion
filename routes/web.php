@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,7 @@ Route::get('/admin', function () {
 //         return view('home');
 //     });
 // });
+
+Auth::routes();
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
