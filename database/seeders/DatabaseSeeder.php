@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
             Category::create($category);
         }
         Product::factory(80)->create();
-        // User::factory(10)->create();
-        // User::factory()->admin()->create(['name' => 'Edouard']);
+        User::factory()->create([
+            'name' => 'Edouard',
+            'email' => 'edouard@wefashion.com'
+        ]);
     }
 }
