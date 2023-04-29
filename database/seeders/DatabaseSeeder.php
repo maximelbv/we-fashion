@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
         foreach ($categories as $category) {
             Category::create($category);
         }
-        Product::factory(50)->create();
-        User::factory(10)->create();
+        Product::factory(80)->create();
+        // User::factory(10)->create();
         // User::factory()->admin()->create(['name' => 'Edouard']);
     }
 }
