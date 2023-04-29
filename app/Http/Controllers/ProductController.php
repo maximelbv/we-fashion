@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Pagination\Paginator;
-use App;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +12,7 @@ class ProductController extends Controller {
 
     public function index(): View {
         return view('app.index', [
-            'products' => App\Models\Product::paginate(6)->where('isPublished', '1')
+            'products' => Product::paginate(6)->where('isPublished', '1')
         ]);
     }
 
@@ -37,7 +35,7 @@ class ProductController extends Controller {
     }
 
     public function show (string $id): RedirectResponse | View {
-        $product = App\Models\Product::findOrFail($id);
+        $product = Product::findOrFail($id);
         return view('app.show', [
             'product' => $product
         ]);

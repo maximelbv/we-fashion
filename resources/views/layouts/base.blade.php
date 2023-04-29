@@ -78,11 +78,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container py-4">
             @yield('content')
         </main>
 
-        <footer class="footer">
+        <footer class="container">
             <ul aria-label="Informations">
                 <li><a href="/">Legal Mentions</a></li>
                 <li><a href="/">Press</a></li>
