@@ -3,7 +3,6 @@
 A study project to implement the notions learned in PHP, SQL and Laravel at [L'Ecole Multimedia](https://www.ecole-multimedia.com/)
 
 -> [Project's brief](public/brief.pdf) <br>
--> [Database Model](https://prettyfdbdiagram.io/d/6447ec9f6b319470512ca8df)
 
 ## Installation
 
@@ -27,6 +26,9 @@ composer install
 ```
 php artisan migrate:fresh --seed
 ```
+
+Model : 
+![image](/model.png)
 
 
 ### Project Launch
