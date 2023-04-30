@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/') }}" style='color: #66EB9A; font-weight: bolder;'>
+                <a class="navbar-brand" href="{{ url('/admin') }}" style='color: #66EB9A; font-weight: bolder;'>
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,13 +36,10 @@
 
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.filter', ['state' => 'promotion']) }}">DISCOUNT</a>
+                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 1]) }}">PRODUCTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 1]) }}">MEN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 2]) }}">WOMEN</a>
+                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 2]) }}">CATEGORIES</a>
                         </li>
                     </ul>
 
