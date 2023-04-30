@@ -2,24 +2,48 @@
 # We Fashion
 A study project to implement the notions learned in PHP, SQL and Laravel at [L'Ecole Multimedia](https://www.ecole-multimedia.com/)
 
--> [Project's brief](public/brief.pdf)
-
-### Requirements
+-> [Project's brief](public/brief.pdf) <br>
 -> [Database Model](https://prettyfdbdiagram.io/d/6447ec9f6b319470512ca8df)
-### Installation
 
-> _Décrire ici les étapes d'installation et commandes à lancer (migrations, seeds, vendors laravel et dépendances npm)_
+## Installation
 
-**Base de données :**
+- Clone this repo
 
-> _S'il faut configurer la base de données, mettez également les instructions ici_
+- Install the dependencies
+```
+npm install
+composer install
+```
 
 
 
-## Lancement du projet
+### Database configuration
+- Create an empty database named 'we-fashion' (you can name it differently if you register it in the DB_DATABASE variable in the .env file)
 
-> _Décrivez les étapes pour lancer votre projet sur un serveur Web_
+- Verify that the database username & passwords of the .env file match yours
 
-## Informations complémentaires
+- Migrate models on the database & seed them :
 
-> _Précisez les informations importantes (liens vers l'admin, login/mot de passe ...etc)_
+```
+php artisan migrate:fresh --seed
+```
+
+
+### Project Launch
+
+- Launch the server
+```
+php artisan serve
+```
+
+- Launch vite
+```
+npm run dev
+```
+
+## Access to the admin dashboard
+
+The admin dashboard is aviable via /admin (example: http://127.0.0.1:8000/admin) <br><br>
+
+Username : Edouard@wefashion.com <br>
+Password: password
