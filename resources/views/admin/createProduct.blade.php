@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1>New Product</h1>
+
 <form action="" method="post">
     @csrf
     <div class="mb-3">
@@ -25,7 +27,7 @@
 
     <div class="mb-3">
         <label class="form-label" for="imageUrl">Image</label>
-        <input class="form-control" type="file" name="imageUrl" value="{{ old('imageUrl') }}">
+        <input class="form-control" type="file" name="imageUrl">
         <span class="form-text" style='color: red'>@error('imageUrl'){{ $message }}@enderror</span>
     </div>
 

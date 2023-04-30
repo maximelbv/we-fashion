@@ -38,7 +38,9 @@ Route::prefix('/admin')->name('admin.')->controller(\App\Http\Controllers\AdminC
 
     Route::post('/products/new', 'store');
 
-    Route::get('/products/edit/{id}', 'editProduct')->where(['id' => '[0-9]+'])->name('editProduct');
+    Route::get('/products/{product}/edit', 'editProduct')->name('editProduct');
+
+    Route::post('/products/{product}/edit', 'updateProduct');
 
     Route::get('/categories', 'categories')->name('categories');
 

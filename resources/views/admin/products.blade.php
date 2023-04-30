@@ -20,17 +20,20 @@
 
 <div class="row container mx-auto p-0 pt-3">
     @foreach ($products as $product)
-    <div class="border" style="margin: .5rem 0">
+    <div class="d-flex align-items-center border" style="margin: .5rem 0">
         <div class="card-body">
             <p style='margin: 0.2rem 0'>ID : {{ $product->id }}</p>
             <p style='margin-bottom: 0'>{{ $product->reference }}</p>
             <h3 style='margin: .5rem 0'>{{ $product->name }}</h3>
             <p style='margin-bottom: 0'>{{ $product->price }} $</p>
+            <p style='margin-bottom: 0'>{{ $product->size }} $</p>
             <p style='margin-bottom: 0'>{{ $product->category_id == 1 ? 'Men' : 'Women' }}</p>
             <p style='font-weight: bolder; '>{{ $product->state == 'promotion' ? 'DISCOUNT' : 'No promotion' }}</p>
+            <p style='margin-bottom: 0'>{{ $product->isPublished == '1' ? 'PUBLISHED' : 'DRAFT' }}</p>
         </div>
         <div>
-            <a href="{{ route('admin.editProduct', $product->id) }}" style="text-decoration: none; color: #212529;">Edit</a>
+            <a class="btn btn-warning" href="{{ route('admin.editProduct', $product->id) }}">Edit</a>
+            <a class="btn btn-danger" href="{{ route('admin.editProduct', $product->id) }}">Delete</a>
         </div>
     </div>
     @endforeach

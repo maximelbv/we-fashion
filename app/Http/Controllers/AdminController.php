@@ -45,11 +45,22 @@ class AdminController extends Controller
         return view('admin.createProduct', ['categories' => $categories]);
     }
 
-    public function editProduct()
+    public function updateProduct(Product $product, CreateProductRequest $request)
     {
-        return view('admin.editProduct');
+        $product->update($request->validated());
+        return redirect()->route('admin.products')->with('success', 'Product updated');
     }
 
+    public function editProduct(Product $product)
+    {
+        $categories = Category::all();
+
+        return view('admin.editProduct', [
+            'product' => $product,
+            'categories' => $categories
+        ]);
+    }
+    
     public function categories() {
         return view('admin.categories');
     }

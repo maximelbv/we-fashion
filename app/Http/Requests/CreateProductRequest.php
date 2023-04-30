@@ -32,7 +32,7 @@ class CreateProductRequest extends FormRequest
             'isPublished' => ['required'],
             'state' => ['required'],
             'category_id' => ['required'],
-            'reference' => ['required', 'min: 16, max: 16', 'unique:products'],
+            'reference' => ['required', 'size:16'],
         ];
     }
 
