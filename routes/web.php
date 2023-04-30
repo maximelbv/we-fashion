@@ -28,4 +28,16 @@ Route::prefix('/app')->name('products.')->controller(\App\Http\Controllers\Produ
 
 Auth::routes();
 
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+Route::prefix('/admin')->name('admin.')->controller(\App\Http\Controllers\AdminController::class)->group(function () {
+
+    Route::get('/', function () {return redirect('/admin/products');});
+
+    Route::get('/products', 'products')->name('products');
+
+    Route::get('/products/edit/{id}', 'editProduct')->where(['id' => '[0-9]+'])->name('editProduct');
+
+    Route::get('/categories', 'categories')->name('categories');
+
+});
+
+

@@ -36,10 +36,10 @@
 
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 1]) }}">PRODUCTS</a>
+                            <a class="nav-link" href="{{ route('admin.products') }}">PRODUCTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.filter', ['category_id' => 2]) }}">CATEGORIES</a>
+                            <a class="nav-link" href="{{ route('admin.categories') }}">CATEGORIES</a>
                         </li>
                     </ul>
 
