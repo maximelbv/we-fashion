@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 10, 2);
             $table->string('imageUrl');
             $table->enum('size', ['XS', 'S', 'M', 'L', 'XL']);
-            $table->boolean('isPublished');
+            $table->boolean('isPublished')->default(0);
             $table->enum("state", ["promotion", "standard"]);
             $table->string('reference', 16);
             $table->foreignId('category_id')->constrained('categories');

@@ -14,12 +14,12 @@ class Product extends Model
         'desc',
         'price',
         'imageUrl',
+        'size',
+        'isPublished',
+        'state',
+        'reference',
         'category_id',
         'size-id',
         'state_id'
     ];
-
-    // protected $guarded = [
-    //     'id'
-    // ];
 }

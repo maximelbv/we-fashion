@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -31,9 +33,21 @@ class AdminController extends Controller
         return view('admin.products', ["products" => $products]);
     }
 
+    public function store(CreateProductRequest $request) {
+
+        Product::create($request->validated());
+        return redirect()->route('admin.products')->with('success', 'Product added' );
+    }
+
+    public function createProduct()
+    {
+        $categories = Category::all();
+        return view('admin.createProduct', ['categories' => $categories]);
+    }
+
     public function editProduct()
     {
-        return view('admin.edit');
+        return view('admin.editProduct');
     }
 
     public function categories() {
