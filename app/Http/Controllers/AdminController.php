@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -59,6 +60,12 @@ class AdminController extends Controller
             'product' => $product,
             'categories' => $categories
         ]);
+    }
+
+    public function deleteProduct(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('admin.products')->with('success', 'Product deleted');
     }
     
     public function categories() {

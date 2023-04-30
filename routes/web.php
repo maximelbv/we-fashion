@@ -42,6 +42,8 @@ Route::prefix('/admin')->name('admin.')->controller(\App\Http\Controllers\AdminC
 
     Route::post('/products/{product}/edit', 'updateProduct');
 
+    Route::delete('/products/{product}/delete', 'deleteProduct')->name('deleteProduct');
+
     Route::get('/categories', 'categories')->name('categories');
 
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateProductRequest extends FormRequest
 {
@@ -32,7 +33,7 @@ class CreateProductRequest extends FormRequest
             'isPublished' => ['required'],
             'state' => ['required'],
             'category_id' => ['required'],
-            'reference' => ['required', 'size:16'],
+            'reference' => ['required', 'size:16', Rule::unique('products')->ignore($this->route()->parameter('product'))],
         ];
     }
 

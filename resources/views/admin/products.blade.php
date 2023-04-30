@@ -31,9 +31,14 @@
             <p style='font-weight: bolder; '>{{ $product->state == 'promotion' ? 'DISCOUNT' : 'No promotion' }}</p>
             <p style='margin-bottom: 0'>{{ $product->isPublished == '1' ? 'PUBLISHED' : 'DRAFT' }}</p>
         </div>
-        <div>
+        <div class="d-fl">
             <a class="btn btn-warning" href="{{ route('admin.editProduct', $product->id) }}">Edit</a>
-            <a class="btn btn-danger" href="{{ route('admin.editProduct', $product->id) }}">Delete</a>
+
+            <form action="products/{{ $product->id }}/delete" method="POST">
+                @csrf
+                @method("DELETE")
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     </div>
     @endforeach
