@@ -10,6 +10,7 @@
 <div class="d-flex justify-content-between align-items-center">
     <h1>All Articles</h1>
     <p class="fs-4 m-0">{{ $products->total() }} Products</p>
+
 </div>
 
 @if (Session::has('success'))
@@ -25,14 +26,17 @@
             <p style='margin: 0.2rem 0'>ID : {{ $product->id }}</p>
             <p style='margin-bottom: 0'>{{ $product->reference }}</p>
             <h3 style='margin: .5rem 0'>{{ $product->name }}</h3>
-            <p style='margin-bottom: 0'>{{ $product->price }} $</p>
-            <p style='margin-bottom: 0'>{{ $product->size }} $</p>
-            <p style='margin-bottom: 0'>{{ $product->category_id == 1 ? 'Men' : 'Women' }}</p>
-            <p style='font-weight: bolder; '>{{ $product->state == 'promotion' ? 'DISCOUNT' : 'No promotion' }}</p>
-            <p style='margin-bottom: 0'>{{ $product->isPublished == '1' ? 'PUBLISHED' : 'DRAFT' }}</p>
+            <div class="d-flex">
+                <p style='margin-right: .5rem'>{{ $product->price }} $ • </p>
+                <p style='margin-right: .5rem'>{{ $product->size }} $ • </p>
+                <p style='margin-right: .5rem'>{{ $product->category_id == 1 ? 'Men' : 'Women' }} • </p>
+                <p style='margin-right: .5rem;font-weight: bolder; '>{{ $product->state == 'promotion' ? 'DISCOUNT' : 'No promotion' }} • </p>
+                <p style='margin-right: .5rem'>{{ $product->isPublished == '1' ? 'PUBLISHED' : 'DRAFT' }}</p>
+            </div>
+
         </div>
-        <div class="d-fl">
-            <a class="btn btn-warning" href="{{ route('admin.editProduct', $product->id) }}">Edit</a>
+        <div class="d-flex">
+            <a style="margin-right: .5rem" class="btn btn-warning" href="{{ route('admin.editProduct', $product->id) }} ">Edit</a>
 
             <form action="products/{{ $product->id }}/delete" method="POST">
                 @csrf

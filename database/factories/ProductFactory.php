@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Size;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -22,11 +24,21 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+
+
+
+        $path = public_path('uploads/products');
+        $files = File::allFiles($path);
+
+        $randomFile = pathinfo($files[rand(0, count($files) - 1)]);
+        $fileName = $randomFile['basename'];
+        $fileLink = 'uploads/products/' . $fileName;
+
         return [
             'name' => fake()->word(),
             'desc' => fake()->text(100),
             'price' => fake()->randomFloat(2, 0, 1000),
-            'imageUrl' => fake()->imageUrl(),
+            'imageUrl' => $fileLink,
             'size' => fake()->randomElement(['XS', 'S', 'M', 'L', 'XL']),
             'isPublished' => fake()->boolean(),
             'state' => fake()->randomElement(['promotion', 'standard']),

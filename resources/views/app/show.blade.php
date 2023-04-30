@@ -6,7 +6,7 @@
 
 <article class="d-flex">
 
-    <img src="{{ $product->imageUrl }}" alt="product image">
+    <img src="/{{ $product->imageUrl }}" alt="product image" style='width: 50%'>
 
     <div class="m-3">
         <h1>{{ $product->name }}</h1>
